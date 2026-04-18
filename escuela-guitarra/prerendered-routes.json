@@ -1,0 +1,8 @@
+{
+  "routes": {
+    "/": {},
+    "/cursos": {},
+    "/estudiantes": {},
+    "/inscripciones": {}
+  }
+}
