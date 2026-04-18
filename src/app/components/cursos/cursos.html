@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h2 class="text-center">Cursos 🎸</h2>
+
+<div class="card p-4 mb-4 shadow-sm rounded-4" style="background-color: #ffffff;">    <input class="form-control mb-2" [(ngModel)]="nuevo.nombreCurso" placeholder="Nombre del curso">
+    <input class="form-control mb-3 rounded-3" style="background-color: #f8f9fa;" [(ngModel)]="nuevo.nivel" placeholder="Nivel">
+    <input class="form-control mb-3 rounded-3" style="background-color: #f8f9fa;" [(ngModel)]="nuevo.precio" placeholder="Precio">
+
+    <button class="btn w-100 rounded-3 text-white" style="background-color: #6c757d;" (click)="guardar()">
+      {{ editando ? 'Actualizar' : 'Agregar' }}
+    </button>
+
+    <button *ngIf="editando" class="btn btn-secondary mt-2" (click)="cancelar()">
+      Cancelar
+    </button>
+  </div>
+
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between"
+        *ngFor="let c of cursos">
+
+      {{c.nombreCurso}} - {{c.nivel}} - ${{c.precio}}
+
+      <div>
+        <button class="btn btn-warning btn-sm me-2" (click)="editar(c)">Editar</button>
+       <button class="btn btn-sm text-white" style="background-color: #adb5bd;" (click)="eliminar(c.id)">Eliminar</button>
+      </div>
+    </li>
+  </ul>
+</div>

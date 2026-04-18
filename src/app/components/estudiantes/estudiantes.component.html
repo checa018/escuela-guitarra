@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h2 class="text-center">Estudiantes 🎸</h2>
+
+<div class="card p-4 mb-4 shadow-sm rounded-4" style="background-color: #ffffff;">    <input class="form-control mb-2" [(ngModel)]="nuevo.nombre" placeholder="Nombre">
+   <input class="form-control mb-3 rounded-3" style="background-color: #f8f9fa;" [(ngModel)]="nuevo.apellido" placeholder="Apellido">
+   <input class="form-control mb-3 rounded-3" style="background-color: #f8f9fa;" [(ngModel)]="nuevo.edad" placeholder="Edad">
+    <input class="form-control mb-3 rounded-3" style="background-color: #f8f9fa;" [(ngModel)]="nuevo.nivel" placeholder="Nivel">
+
+    <button class="btn w-100 rounded-3 text-white" style="background-color: #6c757d;" (click)="guardar()">
+      {{ editando ? 'Actualizar' : 'Agregar' }}
+    </button>
+
+    <button *ngIf="editando" class="btn btn-secondary mt-2" (click)="cancelar()">
+      Cancelar
+    </button>
+  </div>
+
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between"
+        *ngFor="let e of estudiantes">
+
+      {{e.nombre}} {{e.apellido}} - {{e.nivel}}
+
+      <div>
+        <button class="btn btn-warning btn-sm me-2" (click)="editar(e)">Editar</button>
+        <button class="btn btn-sm text-white" style="background-color: #adb5bd;" (click)="eliminar(e.id)">Eliminar</button>
+      </div>
+    </li>
+  </ul>
+</div>
